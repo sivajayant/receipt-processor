@@ -12,7 +12,6 @@ app.use(express.json())
 
 app.post('/receipts/process', (req, res) => {
     const body = req.body.body;
-    console.log(body)
     const uuid = randomUUID();
     fs.writeFile(`${uuid}.json`, JSON.stringify(body), (err) => {  
         // Catch this!
@@ -90,6 +89,7 @@ app.get('/receipts/:id/points', (req, res) => {
 })
 
 
+//Enter your localhost ID in place of 5174, to check if the server is running on start
 app.listen(5174,'localhost' , () => {
     console.log('server is running');
 })
