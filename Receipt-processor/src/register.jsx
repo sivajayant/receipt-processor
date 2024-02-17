@@ -59,7 +59,6 @@ function Register() {
     ]
     
     const handleUpload = () => {
-        console.log(selectedReciept, 'selectedReciept')
         axios.post('http://localhost:5174/receipts/process', { body :selectedReciept.value })
         .then(result => {
             setUuid(result.data.id)
@@ -71,7 +70,6 @@ function Register() {
     const handleGetPoints = () => {
         axios.get(`http://localhost:5174/receipts/${uuid}/points`)
         .then(result => {
-            console.log(result)
             setPoints(result.data.points)
             setSelectedReciept(null)
             setShow(false)
